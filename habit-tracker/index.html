@@ -3,32 +3,60 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mini Habit Tracker</title>
+  <title>CEO Habit OS</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <main class="app">
-    <header>
-      <p class="eyebrow">MINI HABIT TRACKER</p>
-      <h1>ทำวันนี้ให้สำเร็จ ✓</h1>
-      <p id="today" class="muted"></p>
+    <header class="hero">
+      <div>
+        <p class="eyebrow">CEO HABIT OS · V1</p>
+        <h1>Win the Day</h1>
+        <p id="today" class="muted"></p>
+      </div>
+      <button id="themeBtn" class="ghost" type="button">☾</button>
     </header>
 
-    <section class="summary">
-      <div><strong id="doneCount">0</strong><span>เสร็จวันนี้</span></div>
-      <div><strong id="totalCount">0</strong><span>Habit ทั้งหมด</span></div>
-      <div><strong id="bestStreak">0</strong><span>Best streak</span></div>
+    <section class="score-card">
+      <div class="score-ring"><strong id="dailyScore">0%</strong><span>Daily Score</span></div>
+      <div class="progress-wrap">
+        <div class="progress"><div id="progressBar"></div></div>
+        <p id="scoreMessage">เริ่มจากสิ่งสำคัญที่สุดก่อน</p>
+      </div>
     </section>
 
-    <form id="habitForm" class="add-form">
-      <input id="habitInput" maxlength="50" placeholder="เพิ่ม Habit เช่น ออกกำลังกาย 30 นาที" required />
-      <button type="submit">+ เพิ่ม</button>
-    </form>
+    <section class="panel">
+      <div class="section-head">
+        <div><p class="eyebrow">FOCUS</p><h2>Top 3 Today</h2></div>
+      </div>
+      <div id="top3List" class="top3-list"></div>
+    </section>
 
-    <section id="habitList" class="habit-list"></section>
-    <p id="emptyState" class="empty">ยังไม่มี Habit — เริ่มจาก 1 อย่างเล็ก ๆ วันนี้</p>
+    <section class="panel">
+      <div class="section-head">
+        <div><p class="eyebrow">SYSTEM</p><h2>Daily Habits</h2></div>
+        <span id="habitProgress" class="pill">0 / 0</span>
+      </div>
+      <form id="habitForm" class="add-form">
+        <input id="habitInput" maxlength="50" placeholder="เพิ่ม Habit เช่น ออกกำลังกาย 30 นาที" required />
+        <button type="submit">+ เพิ่ม</button>
+      </form>
+      <section id="habitList" class="habit-list"></section>
+      <p id="emptyState" class="empty">ยังไม่มี Habit — เริ่มจาก 1 อย่างเล็ก ๆ วันนี้</p>
+    </section>
+
+    <section class="stats">
+      <div><strong id="doneCount">0</strong><span>เสร็จวันนี้</span></div>
+      <div><strong id="totalCount">0</strong><span>Habit ทั้งหมด</span></div>
+      <div><strong id="bestStreak">0</strong><span>Best Streak</span></div>
+    </section>
+
+    <section class="panel reflection">
+      <div class="section-head"><div><p class="eyebrow">REVIEW</p><h2>Evening Reflection</h2></div></div>
+      <textarea id="reflection" rows="4" placeholder="วันนี้อะไรทำได้ดี? อะไรควรปรับปรุงพรุ่งนี้?"></textarea>
+      <p class="autosave">บันทึกอัตโนมัติในเครื่อง</p>
+    </section>
   </main>
-
   <script src="app.js"></script>
 </body>
 </html>
