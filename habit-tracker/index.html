@@ -10,11 +10,15 @@
   <main class="app">
     <header class="hero">
       <div>
-        <p class="eyebrow">CEO HABIT OS · V1</p>
+        <p class="eyebrow">CEO HABIT OS · V2 CLOUD</p>
         <h1>Win the Day</h1>
         <p id="today" class="muted"></p>
       </div>
-      <button id="themeBtn" class="ghost" type="button">☾</button>
+      <div class="hero-actions">
+        <div id="syncStatus" class="sync-status" data-status="local">บันทึกในเครื่อง</div>
+        <button id="authBtn" class="auth-button" type="button">เข้าสู่ระบบ</button>
+        <button id="themeBtn" class="ghost" type="button" aria-label="เปลี่ยนธีม">☾</button>
+      </div>
     </header>
 
     <section class="score-card">
@@ -54,9 +58,32 @@
     <section class="panel reflection">
       <div class="section-head"><div><p class="eyebrow">REVIEW</p><h2>Evening Reflection</h2></div></div>
       <textarea id="reflection" rows="4" placeholder="วันนี้อะไรทำได้ดี? อะไรควรปรับปรุงพรุ่งนี้?"></textarea>
-      <p class="autosave">บันทึกอัตโนมัติในเครื่อง</p>
+      <p class="autosave">บันทึกอัตโนมัติในเครื่อง และซิงก์ Cloud เมื่อเข้าสู่ระบบ</p>
     </section>
   </main>
+  <dialog id="authDialog" class="auth-dialog">
+    <form id="authForm" class="auth-card">
+      <div class="auth-heading">
+        <div>
+          <p class="eyebrow">CLOUD SYNC</p>
+          <h2 id="authTitle">เข้าสู่ระบบ</h2>
+        </div>
+        <button id="closeAuthBtn" class="dialog-close" type="button" aria-label="ปิด">×</button>
+      </div>
+      <p class="muted auth-copy">ซิงก์ Habit และ Reflection ของคุณระหว่างมือถือกับคอมพิวเตอร์</p>
+      <label class="field-label">อีเมล
+        <input id="emailInput" type="email" autocomplete="email" required />
+      </label>
+      <label class="field-label">รหัสผ่าน
+        <input id="passwordInput" type="password" minlength="8" autocomplete="current-password" required />
+      </label>
+      <p id="authError" class="form-error" role="alert"></p>
+      <button id="authSubmitBtn" class="primary-button" type="submit">เข้าสู่ระบบ</button>
+      <button id="switchAuthModeBtn" class="text-button" type="button">ยังไม่มีบัญชี? สมัครสมาชิก</button>
+    </form>
+  </dialog>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="config.js"></script>
   <script src="app.js"></script>
 </body>
 </html>
